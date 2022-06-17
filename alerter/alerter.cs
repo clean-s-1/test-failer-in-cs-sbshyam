@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace AlerterSpace {
     class Alerter {
@@ -8,6 +8,10 @@ namespace AlerterSpace {
             // Return 200 for ok
             // Return 500 for not-ok
             // stub always succeeds and returns 200
+            if (celcius > 200)
+            {
+                return 500;
+            }
             return 200;
         }
         static void alertInCelcius(float farenheit) {
@@ -22,8 +26,13 @@ namespace AlerterSpace {
             }
         }
         static void Main(string[] args) {
-            alertInCelcius(400.5f);
+         
             alertInCelcius(303.6f);
+            Debug.Assert(alertFailureCount == 0);
+            alertInCelcius(400.5f);
+            Debug.Assert(alertFailureCount == 1);
+            alertInCelcius(392f);
+            Debug.Assert(alertFailureCount == 1);
             Console.WriteLine("{0} alerts failed.", alertFailureCount);
             Console.WriteLine("All is well (maybe!)\n");
         }
