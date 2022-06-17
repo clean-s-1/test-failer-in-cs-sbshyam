@@ -12,6 +12,7 @@ namespace MisalignedSpace {
                     Console.WriteLine("{0} | {1} | {2}", ((i * majorColors.Length) + 1 + j), majorColors[i], minorColors[j]);
                 }
             }
+          Console.WriteLine(i*j);
             return i * j;
         }
         static void Main(string[] args) {
